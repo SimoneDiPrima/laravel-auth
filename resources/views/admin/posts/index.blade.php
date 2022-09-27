@@ -1,11 +1,5 @@
 @extends('layouts.app')
 @section('content')
-@if(session('message'))
-<div class="container">
-<div class="alert alert-{{session('type') ?? 'info' }}">{{ session('message') }}</div>  
-</div>
-
-@endif
 
 <header class="container">
     <h1>LA LISTA DEI MIEI POST</h1>
@@ -29,9 +23,16 @@
                 <td>{{$post->content}}</td>
                 <td>{{$post->created_at}}</td>
                 <td>{{$post->update_at}}</td>
-                <td>
-                    <a class="btn btn-small btn-success" href="{{route('admin.posts.show',$post)}}">
+                <td class="d-flex justify-content-between">
+                    <a class="btn btn-small btn-success mr-2" href="{{route('admin.posts.show',$post)}}">
                         Mostra</a>
+                    <a class="btn btn-small btn-warning mr-2" href="#">
+                        Modifica</a>
+                    <form action="{{Route('admin.posts.destroy',$post->id)}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Cancella</button>
+                    </form>
                 </td>
             </tr>
             @empty
