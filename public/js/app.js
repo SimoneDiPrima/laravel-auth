@@ -37304,6 +37304,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./delete_confirmation */ "./resources/js/delete_confirmation.js");
 
+__webpack_require__(/*! ./image_preview */ "./resources/js/image_preview.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -37370,6 +37372,22 @@ deleteForm.forEach(function (form) {
 
     ;
   });
+});
+
+/***/ }),
+
+/***/ "./resources/js/image_preview.js":
+/*!***************************************!*\
+  !*** ./resources/js/image_preview.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var placeholder = "https://media.istockphoto.com/vectors/thumbnail-image-vector-graphic-vector-id1147544807?k=20&m=1147544807&s=612x612&w=0&h=pBhz1dkwsCMq37Udtp9sfxbjaMl27JUapoyYpQm0anc=";
+var imageField = document.getElementById('image-field');
+var preview = document.getElementById('preview');
+imageField.addEventListener('input', function () {
+  if (imageField.value) preview.src = imageField.value;else preview.src = placeholder;
 });
 
 /***/ }),

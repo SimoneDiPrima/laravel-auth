@@ -1,17 +1,20 @@
 @extends('layouts.app')
 @section('content')
-
-<header class="container">
+<div class="container">
+<header class="d-flex justify-content-between align-items-center mb-4">
     <h1>LA LISTA DEI MIEI POST</h1>
+    <a class="btn btn-primary" href="{{route('admin.posts.create')}}">Nuovo Post</a>
+    </header>
+    
     <table class="table table-dark table-striped">
         <thead>
         <tr>
-            <td>#</td>
-            <td>Titolo</td>
-            <td>Slug</td>
-            <td>Creato</td>
-            <td>Modificato</td>
-            <td>Gestione</td>
+            <th scope="col">#</th>
+            <th scope="col">Titolo</th>
+            <th scope="col">Slug</th>
+            <th scope="col">Creato il</th>
+            <th scope="col">Modificato</th>
+            <th>Gestione</th>
         </tr>
         </thead>
         <tbody>
@@ -42,5 +45,7 @@
             @endforelse
         </tbody>
     </table>
-</header>
+
+
+</div>
 @endsection
