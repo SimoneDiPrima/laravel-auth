@@ -12,6 +12,7 @@
             <th scope="col">#</th>
             <th scope="col">Titolo</th>
             <th scope="col">Slug</th>
+            <th scope="col">Contenuto</th>
             <th scope="col">Creato il</th>
             <th scope="col">Modificato</th>
             <th>Gestione</th>
@@ -25,11 +26,11 @@
                 <td>{{$post->slug}}</td>
                 <td>{{$post->content}}</td>
                 <td>{{$post->created_at}}</td>
-                <td>{{$post->update_at}}</td>
+                <td>{{$post->updated_at}}</td>
                 <td class="d-flex justify-content-between">
                     <a class="btn btn-small btn-success mr-2" href="{{route('admin.posts.show',$post)}}">
                         Mostra</a>
-                    <a class="btn btn-small btn-warning mr-2" href="#">
+                    <a class="btn btn-small btn-warning mr-2" href="{{route('admin.posts.edit', $post)}}">
                         Modifica</a>
                     <form action="{{Route('admin.posts.destroy',$post->id)}}" method="POST" class="delete-form">
                         @csrf
