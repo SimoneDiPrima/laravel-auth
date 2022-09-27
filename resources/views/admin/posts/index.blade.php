@@ -1,5 +1,11 @@
 @extends('layouts.app')
 @section('content')
+@if(session('message'))
+<div class="container">
+<div class="alert alert-{{session('type') ?? 'info' }}">{{ session('message') }}</div>  
+</div>
+
+@endif
 
 <header class="container">
     <h1>LA LISTA DEI MIEI POST</h1>
