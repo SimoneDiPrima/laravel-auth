@@ -9,6 +9,8 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <!-- FONTAWESOME -->
+    <script src="https://kit.fontawesome.com/77b4cc17b1.js" crossorigin="anonymous"></script>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 

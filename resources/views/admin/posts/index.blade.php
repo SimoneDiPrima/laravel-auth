@@ -9,9 +9,9 @@
             <td>#</td>
             <td>Titolo</td>
             <td>Slug</td>
-            td
             <td>Creato</td>
             <td>Modificato</td>
+            <td>Gestione</td>
         </tr>
         </thead>
         <tbody>
@@ -23,6 +23,10 @@
                 <td>{{$post->content}}</td>
                 <td>{{$post->created_at}}</td>
                 <td>{{$post->update_at}}</td>
+                <td>
+                    <a class="btn btn-small btn-success" href="{{route('admin.posts.show',$post)}}">
+                        Mostra</a>
+                </td>
             </tr>
             @empty
             <tr>
