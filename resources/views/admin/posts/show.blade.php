@@ -14,7 +14,7 @@
         <a href="{{Route('admin.posts.index')}}" class="mt-5 btn btn-light p-1">HOMEPAGE</a>
         </div>
         <div class="d-flex align-items-center justify-content-end mt-5">
-            <form action="{{Route('admin.posts.destroy',$post->id)}}" method="POST">
+            <form action="{{Route('admin.posts.destroy',$post->id)}}" method="POST" class="delete-form">
                 @csrf
                 @method('DELETE')
             <button type="submit" class="btn btn-danger">Cancella</button>

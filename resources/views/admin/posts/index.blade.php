@@ -28,7 +28,7 @@
                         Mostra</a>
                     <a class="btn btn-small btn-warning mr-2" href="#">
                         Modifica</a>
-                    <form action="{{Route('admin.posts.destroy',$post->id)}}" method="POST">
+                    <form action="{{Route('admin.posts.destroy',$post->id)}}" method="POST" class="delete-form">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Cancella</button>
