@@ -5,6 +5,7 @@
     <div class="clearfix mb-4">
         <img class="float-left mr-3" src="{{ $post->image }}" alt="{{ $post->slug }}" />
         <h1>{{$post->title}}</h1>
+        <h4><strong>Categoria:</strong></h4>
         <p>{{$post->content}}</p>
         <div><time><strong>Creato il:</strong> {{$post->created_at}}</time></div>  
         <div><time><strong>Ultima modifica il:</strong> {{$post->updated_at}}</time></div>

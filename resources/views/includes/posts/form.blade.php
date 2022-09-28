@@ -8,11 +8,27 @@
 
 <form action="{{route('admin.posts.store')}}" method="POST">
             @csrf
-  <div class="form-group">
-    <label for="title">TITOLO</label>
-    <input type="text" class="form-control" id="title" name="title" value="{{ old('title', $post->title ) }}" aria-describedby="emailHelp">
-    <small class="form-text text-muted">We'll never share your Privacy with anyone else.</small>
+  <div class="d-flex">
+    <div class="form-group col-9">
+      <label for="title">TITOLO</label>
+      <input type="text" class="form-control" id="title" name="title" value="{{ old('title', $post->title ) }}" aria-describedby="emailHelp">
+      <small class="form-text text-muted">We'll never share your Privacy with anyone else.</small>
+    </div>
+    <div class="ms-2 col-3">
+    <div class="form-group">
+    <label for="category_id">CATEGORIA</label>
+    <select class="form-control" id="category_id" name="category_id">
+      <option>Nessuna Categoria</option>
+      @foreach( $categories as $category )
+      <option value="$category->id">{{$category->label}}</option>
+      @endforeach
+    
+    </select>
   </div>
+    </div>
+
+  </div>
+  
  
   <div class="form-group">
     <label for="content">CONTENUTO</label><br>
