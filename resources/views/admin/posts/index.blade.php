@@ -11,11 +11,11 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">Titolo</th>
-            <th scope="col">Slug</th>
+            <th scope="col">Categoria</th>
             <th scope="col">Contenuto</th>
             <th scope="col">Creato il</th>
             <th scope="col">Modificato</th>
-            <th>Gestione</th>
+            <th scope="col" class="text-center">Gestione</th>
         </tr>
         </thead>
         <tbody>
@@ -23,7 +23,7 @@
             <tr>
                 <th scope="row">{{$post->id}}</th>
                 <td>{{$post->title}}</td>
-                <td>{{$post->slug}}</td>
+                <td></td>
                 <td>{{$post->content}}</td>
                 <td>{{$post->created_at}}</td>
                 <td>{{$post->updated_at}}</td>
