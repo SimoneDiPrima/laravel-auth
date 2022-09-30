@@ -6,7 +6,7 @@
     <a class="btn btn-primary" href="{{route('admin.posts.create')}}">Nuovo Post</a>
     </header>
     
-    <table class="table table-dark table-striped">
+    <table class="table table-light table-striped">
         <thead>
         <tr>
             <th scope="col">#</th>
@@ -25,7 +25,7 @@
                 <td>{{$post->title}}</td>
                 <td>
                 @if($post->category)
-            <strong>{{ $post->category->label }}</strong>
+            <strong class="badge badge-{{$post->category->color}} text-danger">{{ $post->category->label }}</strong>
         
         @else
         <span>Nessuna</span>

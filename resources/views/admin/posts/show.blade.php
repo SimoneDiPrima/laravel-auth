@@ -7,7 +7,7 @@
         <h1>{{$post->title}}</h1>
         <h4><strong>Categoria:</strong></h4>
         @if($post->category)
-        <strong>{{ $post->category->label }}</strong>
+        <strong class="badge badge-{{$post->category->color}} text-danger">{{ $post->category->label }}</strong>
         
         @else
         <span>Nessuna</span>
