@@ -34,7 +34,7 @@
  
   <div class="form-group">
     <label for="content">CONTENUTO</label><br>
-    <textarea name="content" placeholder="content" row="10" col="40">{{old('content',$post->content )}}</textarea>
+    <textarea name="content" id="content" placeholder="content" row="10" cols="50">{{old('content',$post->content )}}</textarea>
   </div>
   <div class="form-group">
     <label for="image">IMMAGINE</label>
