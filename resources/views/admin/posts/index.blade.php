@@ -23,7 +23,14 @@
             <tr>
                 <th scope="row">{{$post->id}}</th>
                 <td>{{$post->title}}</td>
-                <td></td>
+                <td>
+                @if($post->category)
+            <strong>{{ $post->category->label }}</strong>
+        
+        @else
+        <span>Nessuna</span>
+        @endif
+                </td>
                 <td>{{$post->content}}</td>
                 <td>{{$post->created_at}}</td>
                 <td>{{$post->updated_at}}</td>
