@@ -13,10 +13,11 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('categories');
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('label',20)->unique();
-            $table->string('color',20)->unique();
+            $table->string('color',20)->nullable();
             $table->timestamps();
         });
     }

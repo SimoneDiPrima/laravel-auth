@@ -25,7 +25,7 @@
                 <td>{{$post->title}}</td>
                 <td>
                 @if($post->category)
-            <strong class="badge badge-{{$post->category->color}} text-danger">{{ $post->category->label }}</strong>
+            <strong class="badge badge-{{$post->category->color}}">{{ $post->category->label }}</strong>
         
         @else
         <span>Nessuna</span>
