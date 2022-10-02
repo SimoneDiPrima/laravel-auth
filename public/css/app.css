@@ -9243,3 +9243,12 @@ h3 {
 body {
   background-color: #f6993f;
 }
+
+.showIcon {
+  width: 500px;
+  height: 500px;
+}
+
+.showImage {
+  margin-left: -15px;
+}

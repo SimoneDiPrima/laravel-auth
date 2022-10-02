@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <header>{{$post->title}}</header>
+    <header class="h2"><strong>{{$post->title}}</strong></header>
     <div class="clearfix mb-4">
-        <img class="float-left mr-3" src="{{ $post->image }}" alt="{{ $post->slug }}" />
+        <img class="showImage float-left mr-3 col-3" src="{{ $post->image }}" alt="{{ $post->slug }}" />
         <h1>{{$post->title}}</h1>
         <h4><strong>Categoria:</strong></h4>
         @if($post->category)
@@ -12,21 +12,22 @@
         @else
         <span>Nessuna</span>
         @endif
-        <p>{{$post->content}}</p>
-        <div><time><strong>Creato il:</strong> {{$post->created_at}}</time></div>  
-        <div><time><strong>Ultima modifica il:</strong> {{$post->updated_at}}</time></div>
+            <p>{{$post->content}}</p>
+            <div><time><strong>Creato il:</strong> {{$post->created_at}}</time></div>  
+            <div class="offset-3"><time><strong>Ultima modifica il:</strong> {{$post->updated_at}}</time></div>
+       
     </div>
     <footer class="d-flex align-items-center justify-content-between mt-5">
         <div>
-        <a href="{{Route('admin.posts.index')}}" class="mt-5 btn btn-light p-1">HOMEPAGE</a>
+        <a href="{{Route('admin.posts.index')}}" class="mt-5 btn btn-light p-1"><i class="fa-solid fa-house-user"></i></a>
         </div>
         <div class="d-flex align-items-center justify-content-end mt-5">
         <a class="btn btn-small btn-warning mr-2" href="{{route('admin.posts.edit', $post)}}">
-                        Modifica</a>
+        <i class="fa-solid fa-pen-to-square"></i></a>
             <form action="{{Route('admin.posts.destroy',$post->id )}}" method="POST" class="delete-form">
                 @csrf
                 @method('DELETE')
-            <button type="submit" class="btn btn-danger">Cancella</button>
+            <button type="submit" class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button>
             </form>
             
         </div>
