@@ -14,6 +14,7 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">Titolo</th>
+            <th scope="col">Autore</th>
             <th scope="col">Categoria</th>
             <th scope="col">Contenuto</th>
             <th scope="col">Creato il</th>
@@ -26,6 +27,11 @@
             <tr>
                 <th scope="row">{{$post->id}}</th>
                 <td>{{$post->title}}</td>
+                @if($post->author)
+                    <td>{{$post->author->name}}</td>
+                @else 
+                    <td>Anonimo</td>
+                @endif
                 <td>
                 @if($post->category)
             <strong class="badge badge-{{$post->category->color}}">{{ $post->category->label }}</strong>

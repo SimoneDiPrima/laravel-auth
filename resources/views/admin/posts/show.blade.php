@@ -7,13 +7,19 @@
         <h1>{{$post->title}}</h1>
         <h4><strong>Categoria:</strong></h4>
         @if($post->category)
-        <strong class="badge badge-{{$post->category->color}} text-danger">{{ $post->category->label }}</strong>
+        <strong class="badge badge-{{$post->category->color}}">{{ $post->category->label }}</strong>
         
         @else
         <span>Nessuna</span>
         @endif
             <p>{{$post->content}}</p>
-            <div><time><strong>Creato il:</strong> {{$post->created_at}}</time></div>  
+            @if($post->author)
+            <div><strong>Autore: </strong> {{$post->author->name}}</div>
+                @else 
+                    <strong>Autore: Anonimo</strong>
+                @endif
+            
+            <div class="offset-3"><time><strong>Creato il:</strong> {{$post->created_at}}</time></div>  
             <div class="offset-3"><time><strong>Ultima modifica il:</strong> {{$post->updated_at}}</time></div>
        
     </div>
