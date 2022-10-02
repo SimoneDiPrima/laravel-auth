@@ -36,8 +36,12 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                                <a class="nav-link text-primary" href="{{ route('admin.posts.index') }}">Posts</a>
-                            </li>
+                         <a class="nav-link text-primary" href="{{ route('admin.posts.index') }}">Posts</a>
+                    </li>
+                    <li class="nav-item">
+                         <a class="nav-link text-primary" href="{{ route('admin.users.index') }}">Users</a>
+                    </li>
+
 
                     </ul>
 

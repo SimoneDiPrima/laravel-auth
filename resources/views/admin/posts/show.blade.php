@@ -1,3 +1,9 @@
+@php
+$isAuthor = $post->user_id === Auth::id()
+
+@endphp
+
+
 @extends('layouts.app')
 @section('content')
 <div class="container">
@@ -23,10 +29,11 @@
             <div class="offset-3"><time><strong>Ultima modifica il:</strong> {{$post->updated_at}}</time></div>
        
     </div>
-    <footer class="d-flex align-items-center justify-content-between mt-5">
+    <footer class="d-flex align-items-center justify-content-{{ $isAuthor ? 'between' :'end' }} mt-5">
         <div>
         <a href="{{Route('admin.posts.index')}}" class="mt-5 btn btn-light p-1"><i class="fa-solid fa-house-user"></i></a>
         </div>
+        @if($isAuthor)
         <div class="d-flex align-items-center justify-content-end mt-5">
         <a class="btn btn-small btn-warning mr-2" href="{{route('admin.posts.edit', $post)}}">
         <i class="fa-solid fa-pen-to-square"></i></a>
@@ -35,8 +42,8 @@
                 @method('DELETE')
             <button type="submit" class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button>
             </form>
-            
         </div>
+        @endif
     </footer>
 </div>
 

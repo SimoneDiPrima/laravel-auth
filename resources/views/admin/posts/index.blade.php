@@ -5,7 +5,7 @@
     <h1>LA LISTA DEI MIEI POST</h1>
     <div>
         <a class="btn btn-primary ms-2" href="{{route('admin.posts.create')}}"><i class="fa-solid fa-plus"></i></a>
-        <a class="btn btn-primary" href="#"><i class="fa-solid fa-user-plus"></i></a>
+        
     </div>
     </header>
     
@@ -43,10 +43,12 @@
                 <td>{{$post->content}}</td>
                 <td>{{$post->created_at}}</td>
                 <td>{{$post->updated_at}}</td>
-                <td class="d-flex justify-content-between">
+                <td class="d-flex justify-content-{{( $post->user_id === Auth::id()) ? 'start' : 'end' }}">
+                    
                     <a class="btn btn-small btn-success mr-2" href="{{route('admin.posts.show',$post)}}">
                         <i class="fa-sharp fa-solid fa-eye"></i>
                     </a>
+                    @if($post->user_id === Auth::id())
                     <a class="btn btn-small btn-warning mr-2" href="{{route('admin.posts.edit', $post)}}">
                         <i class="fa-solid fa-pen-to-square"></i>
                     </a>
@@ -56,6 +58,7 @@
                         <button type="submit" class="btn btn-danger">
                         <i class="fa-solid fa-trash"></i></button>
                     </form>
+                    @endif
                 </td>
             </tr>
             @empty
