@@ -15,6 +15,7 @@
             <th scope="col">#</th>
             <th scope="col">Titolo</th>
             <th scope="col">Autore</th>
+            <th scope="col">tags</th>
             <th scope="col">Categoria</th>
             <th scope="col">Contenuto</th>
             <th scope="col">Creato il</th>
@@ -32,6 +33,7 @@
                 @else 
                     <td>Anonimo</td>
                 @endif
+              
                 <td>
                 @if($post->category)
             <strong class="badge badge-{{$post->category->color}}">{{ $post->category->label }}</strong>
@@ -39,6 +41,13 @@
         @else
         <span>Nessuna</span>
         @endif
+                </td>
+                <td>
+                @forelse($post->tags as $tag) 
+                    <span class="mr-2 badge" style="background-color:{{$tag->color}}">{{$tag->label}}</span> 
+                @empty
+                --
+                @endforelse
                 </td>
                 <td>{{$post->content}}</td>
                 <td>{{$post->created_at}}</td>

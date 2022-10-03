@@ -18,6 +18,14 @@ $isAuthor = $post->user_id === Auth::id()
         @else
         <span>Nessuna</span>
         @endif
+        <div>
+         <h4>Tags :</h4> 
+         @forelse($post->tags as $tag) 
+         <span class="mr-2 badge" style="background-color:{{$tag->color}}">{{$tag->label}}</span> 
+         @empty
+         --
+         @endforelse
+       </div>
             <p>{{$post->content}}</p>
             @if($post->author)
             <div><strong>Autore: </strong> {{$post->author->name}}</div>

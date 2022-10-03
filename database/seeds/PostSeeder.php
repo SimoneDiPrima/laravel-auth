@@ -1,6 +1,7 @@
 <?php
 
 use App\User;
+use App\Models\Tag;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Database\Seeder;
@@ -18,7 +19,8 @@ class PostSeeder extends Seeder
     public function run(Faker $faker)
     {
         $category_ids = Category::pluck('id')->toArray();
-        $user_ids = Category::pluck('id')->toArray();
+        $user_ids = User::pluck('id')->toArray();
+        $tag_ids = Tag::pluck('id')->toArray();
 
         for( $i = 0; $i < 10 ; $i++ ){
             $new_post = new Post();
@@ -30,6 +32,23 @@ class PostSeeder extends Seeder
             $new_post->image = $faker->imageUrl(200,200);
 
             $new_post->save();
+
+            $post_tags = [];
+
+          $array_length = rand(0, count($tag_ids));
+
+          while(count($post_tags) < $array_length){
+
+            $rand_num = Arr::random($tag_ids);
+
+            if(!in_array($rand_num, $post_tags)){
+                $post_tags[] = $rand_num;
+            }
+
+          }
+
+
+            $new_post->tags()->attach($post_tags);
 
         }
     }
