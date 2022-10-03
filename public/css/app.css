@@ -9252,3 +9252,7 @@ body {
 .showImage {
   margin-left: -15px;
 }
+
+.marginNegative {
+  margin-left: -15px;
+}

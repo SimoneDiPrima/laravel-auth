@@ -11,7 +11,7 @@
   <div class="d-flex">
     <div class="form-group col-9">
       <label for="title">TITOLO</label>
-      <input type="text" class="form-control" id="title" name="title" value="{{ old('title', $post->title ) }}" aria-describedby="emailHelp">
+      <input type="text" class="form-control marginNegative" id="title" name="title" value="{{ old('title', $post->title ) }}" aria-describedby="emailHelp">
       <small class="form-text text-muted">We'll never share your Privacy with anyone else.</small>
     </div>
     <div class="ms-2 col-3">
@@ -30,6 +30,19 @@
     </div>
 
   </div>
+  @if(count($tags))
+    <div class="col-12 marginNegative">
+      <fieldset>
+        <legend>Tags</legend>
+        @foreach($tags as $tag)
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox" name="inlineCheckbox">
+          <label class="form-check-label" for="inlineCheckbox">{{ $tag->label }}</label>
+        </div>
+        @endforeach
+      </fieldset>
+    </div>
+  @endif
   
  
   <div class="form-group">
