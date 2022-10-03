@@ -33,7 +33,9 @@ class PostController extends Controller
           $post = new Post();
           $categories = Category::all();
           $tags = Tag::all();
-        return view('admin.posts.create',compact('post','categories','tags'));
+          $prev_tags = [];
+
+        return view('admin.posts.create',compact('post','categories','tags','prev_tags'));
     }
 
     /**
@@ -82,8 +84,13 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Post $post)
-    {    $categories = Category::all();
-        return view('admin.posts.edit',compact('post','categories'));
+    
+    {   
+        $tags = Tag::all();
+         $categories = Category::all();
+         $prev_tags = $post->tags->pluck('id')->toArray();
+         
+        return view('admin.posts.edit',compact('post','categories','tags','prev_tags'));
     }
 
     /**
@@ -101,6 +108,12 @@ class PostController extends Controller
 
         $post->update($data);
 
+        if(array_key_exists('tags',$data)){
+            $post->tags()->sync($data['tags']);
+        }
+      else{
+        $post->tags()->detach();
+      }
         return redirect()->route('admin.posts.show', $post)->with('message','il post è stato modificato con successo')->with('type','success');
         
     }
@@ -113,6 +126,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+if(count($post->tags->detach()));
+
         $post->delete();
         return redirect()->route('admin.posts.index')
         ->with('message','il messaggio è stato eliminato con successo')
