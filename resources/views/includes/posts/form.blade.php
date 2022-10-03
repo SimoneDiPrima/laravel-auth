@@ -36,8 +36,12 @@
         <legend>Tags</legend>
         @foreach($tags as $tag)
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox" name="inlineCheckbox">
-          <label class="form-check-label" for="inlineCheckbox">{{ $tag->label }}</label>
+          <input class="form-check-input" type="checkbox"
+           id="tag-{{$tag->label}}"
+            name="tags[]"
+             value="{{ $tag->id }}"
+             @if(in_array($tag->id,old('tags',[]))) checked @endif>
+          <label class="form-check-label" for="tag-{{$tag->label}}">{{ $tag->label }}</label>
         </div>
         @endforeach
       </fieldset>
